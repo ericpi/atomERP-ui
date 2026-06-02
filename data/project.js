@@ -1,0 +1,570 @@
+window.MOCK_PROJECT_DATA = {
+  zh: {
+  "projects": [
+    {
+      "id": "PRJ001",
+      "name": "ERP 系統原型開發案",
+      "description": "ERP 演示系統與流程模擬專案",
+      "epics": [
+        {
+          "id": "EP-01",
+          "name": "人資管理與請假流演示模組",
+          "status": "in_progress"
+        },
+        {
+          "id": "EP-02",
+          "name": "財務管理與自動記帳模組",
+          "status": "in_progress"
+        },
+        {
+          "id": "EP-03",
+          "name": "庫存警示與進貨模組",
+          "status": "todo"
+        }
+      ],
+      "sprints": [
+        {
+          "id": "SP-01",
+          "name": "Sprint 1 - 基礎架構與核心佈局",
+          "startDate": "2026-06-01",
+          "endDate": "2026-06-14",
+          "status": "active"
+        },
+        {
+          "id": "SP-02",
+          "name": "Sprint 2 - 流程簡報與動態引導整合",
+          "startDate": "2026-06-15",
+          "endDate": "2026-06-28",
+          "status": "future"
+        }
+      ],
+      "issues": [
+        {
+          "id": "ISS-001",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "設計左側主導航列與頂部狀態區",
+          "assignee": "EMP001",
+          "assigneeName": "張小明",
+          "status": "in_progress",
+          "priority": "high",
+          "description": "依據 工業風格設定進行視覺刻劃與路由切換骨架"
+        },
+        {
+          "id": "ISS-002",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-001",
+          "title": "編寫側邊欄 HTML 結構與 HSL 配色樣式",
+          "assignee": "EMP001",
+          "assigneeName": "張小明",
+          "status": "done",
+          "priority": "medium",
+          "description": "利用 CSS Grid 與變數實作左側固定選單"
+        },
+        {
+          "id": "ISS-003",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "建立財務請款上傳憑證模擬區",
+          "assignee": "EMP001",
+          "assigneeName": "張小明",
+          "status": "todo",
+          "priority": "high",
+          "description": "支援拖曳憑證圖檔，預覽上傳狀態並自動寫入待審核狀態"
+        },
+        {
+          "id": "ISS-004",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "實作請假餘額即時扣除邏輯",
+          "assignee": "EMP002",
+          "assigneeName": "林美玲",
+          "status": "todo",
+          "priority": "medium",
+          "description": "請假核准通過時，自動根據時數換算天數扣減 EMP 的 leaveBalance"
+        },
+        {
+          "id": "ISS-005",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-001",
+          "title": "調校全域字體為 Inter / 粗細視覺優化",
+          "assignee": "EMP007",
+          "assigneeName": "徐美琪",
+          "status": "done",
+          "priority": "low",
+          "description": "載入 Google Fonts 引入 Inter 與 Noto Sans 雙字型整合"
+        },
+        {
+          "id": "ISS-006",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "開發請假休假申請單表單欄位",
+          "assignee": "EMP012",
+          "assigneeName": "董德華",
+          "status": "in_progress",
+          "priority": "high",
+          "description": "請假表單需包含起訖日期、代理人選擇、事由及請假時數計算"
+        },
+        {
+          "id": "ISS-007",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-006",
+          "title": "串接代理人下拉選單與人事資料庫",
+          "assignee": "EMP012",
+          "assigneeName": "董德華",
+          "status": "done",
+          "priority": "medium",
+          "description": "讀取 hr.employees 列出同仁姓名清單作為代理人選項"
+        },
+        {
+          "id": "ISS-008",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "設計簡易會計收支平衡 KPI 卡片",
+          "assignee": "EMP009",
+          "assigneeName": "曾曉華",
+          "status": "in_progress",
+          "priority": "high",
+          "description": "於會計流水頁面最上方動態加總收入、支出並計算淨餘額結存"
+        },
+        {
+          "id": "ISS-009",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": "ISS-008",
+          "title": "撰寫複式流水記帳過帳按鈕監聽器",
+          "assignee": "EMP014",
+          "assigneeName": "沈佳怡",
+          "status": "todo",
+          "priority": "medium",
+          "description": "處理手動記一筆帳表單的提交事件，更新 ledgerEntries 列表"
+        },
+        {
+          "id": "ISS-010",
+          "epicId": "EP-03",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "建立安全庫存低於水位警戒線警戒機制",
+          "assignee": "EMP015",
+          "assigneeName": "潘金源",
+          "status": "todo",
+          "priority": "high",
+          "description": "在庫存明細表項目中，若目前庫存量小於安全水位值，則該列自動高亮標記"
+        },
+        {
+          "id": "ISS-011",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "調校全公司員工通訊錄搜尋框",
+          "assignee": "EMP016",
+          "assigneeName": "許立民",
+          "status": "code_review",
+          "priority": "medium",
+          "description": "通訊錄搜尋框輸入後按 Enter 可執行模糊搜尋 (姓名/部門/職位)"
+        },
+        {
+          "id": "ISS-012",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-011",
+          "title": "通訊錄個人細節抽屜側邊欄 (Drawer) 研發",
+          "assignee": "EMP016",
+          "assigneeName": "許立民",
+          "status": "done",
+          "priority": "high",
+          "description": "點擊卡片後由右側滑出抽屜，呈現特休及病假剩餘天數"
+        },
+        {
+          "id": "ISS-013",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "研發銷售業績每月/季/年業務統計表",
+          "assignee": "EMP003",
+          "assigneeName": "陳立華",
+          "status": "code_review",
+          "priority": "high",
+          "description": "依照業務員進行分組，列出每人月度、第二季以及年度累計業績總合"
+        },
+        {
+          "id": "ISS-014",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": "ISS-013",
+          "title": "編寫業績表格表頭點擊排序邏輯",
+          "assignee": "EMP004",
+          "assigneeName": "王阿珍",
+          "status": "done",
+          "priority": "medium",
+          "description": "點選工號、姓名、部門、年度累計時，可自動進行遞增/遞減排序變更"
+        },
+        {
+          "id": "ISS-015",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "繪製銷售儀表板 SVG 月度趨勢折線圖",
+          "assignee": "EMP006",
+          "assigneeName": "趙志豪",
+          "status": "in_progress",
+          "priority": "medium",
+          "description": "使用原生 SVG 畫布渲染 trendline 折線，加載滑鼠 Hover 浮動節點數值"
+        },
+        {
+          "id": "ISS-016",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": "ISS-015",
+          "title": "繪製部門年度業績貢獻 Donut 甜甜圈圓餅圖",
+          "assignee": "EMP007",
+          "assigneeName": "徐美琪",
+          "status": "done",
+          "priority": "medium",
+          "description": "使用 SVG stroke-dasharray 刻劃圓圈百分比佔比"
+        },
+        {
+          "id": "ISS-017",
+          "epicId": "EP-03",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "庫存條碼/QR code 模擬掃描感應器開發",
+          "assignee": "EMP005",
+          "assigneeName": "李大同",
+          "status": "in_progress",
+          "priority": "medium",
+          "description": "點選掃描按鈕後，跳出雷射掃描動態框，模擬一秒後成功辨識感應 SKU"
+        },
+        {
+          "id": "ISS-018",
+          "epicId": "EP-03",
+          "sprintId": "SP-01",
+          "parentId": "ISS-017",
+          "title": "進貨過帳寫入歷史過帳日記簿紀錄",
+          "assignee": "EMP025",
+          "assigneeName": "朴敏宇",
+          "status": "todo",
+          "priority": "medium",
+          "description": "進貨單過帳時除了累加該品項在庫數量，同步建立一筆日誌進進貨紀錄表"
+        },
+        {
+          "id": "ISS-019",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "規劃防呆警告彈出式對話框 (FormGuard Modal)",
+          "assignee": "EMP001",
+          "assigneeName": "張小明",
+          "status": "done",
+          "priority": "high",
+          "description": "當 Form 有編輯值 (isDirty) 且試圖點選側邊欄切換路由時，彈窗阻斷"
+        },
+        {
+          "id": "ISS-020",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "建構互動演示導覽引擎 (Workflow Guide Tooltip)",
+          "assignee": "EMP001",
+          "assigneeName": "張小明",
+          "status": "done",
+          "priority": "high",
+          "description": "設計 WorkflowGuide 類別管理步驟索引，精準運算 bubble 彈窗定位點"
+        }
+      ]
+    }
+  ]
+},
+  en: {
+  "projects": [
+    {
+      "id": "PRJ001",
+      "name": "ERP System Prototype Development",
+      "description": "ERP Demo System & Workflow Simulation Project",
+      "epics": [
+        {
+          "id": "EP-01",
+          "name": "HR Management & Leave Flow Module",
+          "status": "in_progress"
+        },
+        {
+          "id": "EP-02",
+          "name": "Finance Management & Auto Ledger Module",
+          "status": "in_progress"
+        },
+        {
+          "id": "EP-03",
+          "name": "Inventory Alert & Stock-In Module",
+          "status": "todo"
+        }
+      ],
+      "sprints": [
+        {
+          "id": "SP-01",
+          "name": "Sprint 1 - Infrastructure & Layout",
+          "startDate": "2026-06-01",
+          "endDate": "2026-06-14",
+          "status": "active"
+        },
+        {
+          "id": "SP-02",
+          "name": "Sprint 2 - Workflow & Guided Tour",
+          "startDate": "2026-06-15",
+          "endDate": "2026-06-28",
+          "status": "future"
+        }
+      ],
+      "issues": [
+        {
+          "id": "ISS-001",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Design Left Navigation & Topbar Status",
+          "assignee": "EMP001",
+          "assigneeName": "John Zhang",
+          "status": "in_progress",
+          "priority": "high",
+          "description": "Visual rendering and routing skeletal structure based on industrial clean design"
+        },
+        {
+          "id": "ISS-002",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-001",
+          "title": "Sidebar HTML Structure & HSL Theme",
+          "assignee": "EMP001",
+          "assigneeName": "John Zhang",
+          "status": "done",
+          "priority": "medium",
+          "description": "Use CSS Grid and CSS variables to implement a fixed left sidebar menu"
+        },
+        {
+          "id": "ISS-003",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Reimbursement Receipt Upload Simulator",
+          "assignee": "EMP001",
+          "assigneeName": "John Zhang",
+          "status": "todo",
+          "priority": "high",
+          "description": "Support dragging receipt image, preview upload state, and auto queue for approval"
+        },
+        {
+          "id": "ISS-004",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Real-time Leave Balance Deduction",
+          "assignee": "EMP002",
+          "assigneeName": "Meiling Lin",
+          "status": "todo",
+          "priority": "medium",
+          "description": "Auto convert hours to days and deduct employee's leaveBalance upon leave approval"
+        },
+        {
+          "id": "ISS-005",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-001",
+          "title": "Optimize Global Typography with Inter",
+          "assignee": "EMP007",
+          "assigneeName": "Maggie Hsu",
+          "status": "done",
+          "priority": "low",
+          "description": "Integrate Inter and Noto Sans TC fonts via Google Fonts"
+        },
+        {
+          "id": "ISS-006",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Develop Leave Request Form Fields",
+          "assignee": "EMP012",
+          "assigneeName": "Tehua Tung",
+          "status": "in_progress",
+          "priority": "high",
+          "description": "Leave form must contain start/end dates, proxy, reason, and hours calculation"
+        },
+        {
+          "id": "ISS-007",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-006",
+          "title": "Integrate Duty Proxy Select Dropdown",
+          "assignee": "EMP012",
+          "assigneeName": "Tehua Tung",
+          "status": "done",
+          "priority": "medium",
+          "description": "Read hr.employees to populate name list for duty proxy option"
+        },
+        {
+          "id": "ISS-008",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Design General Ledger KPI Cards",
+          "assignee": "EMP009",
+          "assigneeName": "Hsiaohua Tseng",
+          "status": "in_progress",
+          "priority": "high",
+          "description": "Dynamically aggregate income, expenses, and net balance at the top of Ledger page"
+        },
+        {
+          "id": "ISS-009",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": "ISS-008",
+          "title": "Double-entry General Ledger Form Submission",
+          "assignee": "EMP014",
+          "assigneeName": "Chiayi Shen",
+          "status": "todo",
+          "priority": "medium",
+          "description": "Handle manual double-entry ledger submission and update ledgerEntries list"
+        },
+        {
+          "id": "ISS-010",
+          "epicId": "EP-03",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Low Stock Safety Level Alerting",
+          "assignee": "EMP015",
+          "assigneeName": "Chinyuan Pan",
+          "status": "todo",
+          "priority": "high",
+          "description": "Highlight rows in inventory list where stock count falls below safety watermark"
+        },
+        {
+          "id": "ISS-011",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Refine Employee Directory Search",
+          "assignee": "EMP016",
+          "assigneeName": "Limin Hsu",
+          "status": "code_review",
+          "priority": "medium",
+          "description": "Press Enter in directory search input to execute fuzzy search (name/dept/title)"
+        },
+        {
+          "id": "ISS-012",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": "ISS-011",
+          "title": "Employee Details Drawer Development",
+          "assignee": "EMP016",
+          "assigneeName": "Limin Hsu",
+          "status": "done",
+          "priority": "high",
+          "description": "Click employee card to slide out right drawer and view annual & sick leave balances"
+        },
+        {
+          "id": "ISS-013",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Monthly/Quarterly/Annual Sales Stats Board",
+          "assignee": "EMP003",
+          "assigneeName": "Lihua Chen",
+          "status": "code_review",
+          "priority": "high",
+          "description": "Group by sales reps to list monthly, Q2, and annual cumulative sales totals"
+        },
+        {
+          "id": "ISS-014",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": "ISS-013",
+          "title": "Implement Sales Stats Column Sorting",
+          "assignee": "EMP004",
+          "assigneeName": "Jane Wang",
+          "status": "done",
+          "priority": "medium",
+          "description": "Sort records ascending/descending when clicking rep ID, name, dept, or annual total"
+        },
+        {
+          "id": "ISS-015",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Render Sales Trend Line with SVG",
+          "assignee": "EMP006",
+          "assigneeName": "Chihao Chao",
+          "status": "in_progress",
+          "priority": "medium",
+          "description": "Use native SVG canvas to render trendline, showing tooltip value on node hover"
+        },
+        {
+          "id": "ISS-016",
+          "epicId": "EP-02",
+          "sprintId": "SP-01",
+          "parentId": "ISS-015",
+          "title": "Render Department Sales Contribution Donut Chart",
+          "assignee": "EMP007",
+          "assigneeName": "Maggie Hsu",
+          "status": "done",
+          "priority": "medium",
+          "description": "Use SVG stroke-dasharray to draw percentage contribution slices"
+        },
+        {
+          "id": "ISS-017",
+          "epicId": "EP-03",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Simulate Barcode / QR Code Scanner",
+          "assignee": "EMP005",
+          "assigneeName": "Tatung Lee",
+          "status": "in_progress",
+          "priority": "medium",
+          "description": "Click scan button to overlay laser animation and simulate SKU capture after 1 second"
+        },
+        {
+          "id": "ISS-018",
+          "epicId": "EP-03",
+          "sprintId": "SP-01",
+          "parentId": "ISS-017",
+          "title": "Write Stock-In Logs to History",
+          "assignee": "EMP025",
+          "assigneeName": "Min-woo Park",
+          "status": "todo",
+          "priority": "medium",
+          "description": "Adding stock count and log a stock-in journal entry when finalizing stock-in"
+        },
+        {
+          "id": "ISS-019",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "FormGuard Modal Interceptor",
+          "assignee": "EMP001",
+          "assigneeName": "John Zhang",
+          "status": "done",
+          "priority": "high",
+          "description": "Prevent routing and show modal warnings when form is dirty and user tries to switch page"
+        },
+        {
+          "id": "ISS-020",
+          "epicId": "EP-01",
+          "sprintId": "SP-01",
+          "parentId": null,
+          "title": "Interactive Workflow Tour Engine",
+          "assignee": "EMP001",
+          "assigneeName": "John Zhang",
+          "status": "done",
+          "priority": "high",
+          "description": "Design WorkflowGuide class to manage step indexes and compute bubble positions"
+        }
+      ]
+    }
+  ]
+}
+};

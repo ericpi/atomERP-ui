@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>atomERP-ui Demo System</title>
+  <!-- Google Fonts Inter for clean premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Global Loading Backdrop (Simulated API delay) -->
+  <div id="api-loading-backdrop" class="api-loading-backdrop hidden">
+    <div class="spinner-container">
+      <div class="industrial-spinner"></div>
+      <p id="api-loading-text">正在模擬載入數據中...</p>
+    </div>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-box">
+        <span class="logo-text-k">M</span>
+        <span class="logo-text-sda">Inc</span>
+      </div>
+      <div class="brand-info">
+        <h3 data-i18n="brand_name">Mockup Inc.</h3>
+        <p data-i18n="system_title">atomERP-ui</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <!-- HR Module Group -->
+      <div class="nav-group">
+        <div class="nav-group-title" data-i18n="nav_title_hr">人資管理</div>
+        <a href="#/hr/personnel" class="nav-link" id="nav-hr-personnel" data-i18n="nav_hr_personnel">
+          👤 人事管理
+        </a>
+        <a href="#/hr/payroll" class="nav-link" id="nav-hr-payroll" data-i18n="nav_hr_payroll">
+          💵 薪資試算
+        </a>
+        <a href="#/hr/leave" class="nav-link" id="nav-hr-leave" data-i18n="nav_hr_leave">
+          📅 請假休假
+        </a>
+        <a href="#/hr/travel" class="nav-link" id="nav-hr-travel" data-i18n="nav_hr_travel">
+          ✈️ 出差外出
+        </a>
+        <a href="#/hr/directory" class="nav-link" id="nav-hr-directory" data-i18n="nav_hr_directory">
+          📖 員工通訊錄
+        </a>
+      </div>
+
+      <!-- Finance Module Group -->
+      <div class="nav-group">
+        <div class="nav-group-title" data-i18n="nav_title_finance">財務管理</div>
+        <a href="#/finance/claims" class="nav-link" id="nav-finance-claims" data-i18n="nav_finance_claims">
+          🧾 員工請款
+        </a>
+        <a href="#/finance/ledger" class="nav-link" id="nav-finance-ledger" data-i18n="nav_finance_ledger">
+          📊 簡易會計與出納
+        </a>
+      </div>
+
+      <!-- Project Module Group -->
+      <div class="nav-group">
+        <div class="nav-group-title" data-i18n="nav_title_project">專案管理</div>
+        <a href="#/project/board" class="nav-link" id="nav-project-board" data-i18n="nav_project_board">
+          📋 階層式 Issue 看板
+        </a>
+      </div>
+
+      <!-- Sales Module Group -->
+      <div class="nav-group">
+        <div class="nav-group-title" data-i18n="nav_title_sales">銷售管理</div>
+        <a href="#/sales/performance" class="nav-link" id="nav-sales-performance" data-i18n="nav_sales_performance">
+          📈 業務業績統計
+        </a>
+        <a href="#/sales/dashboard" class="nav-link" id="nav-sales-dashboard" data-i18n="nav_sales_dashboard">
+          🖥️ 銷售儀表板
+        </a>
+      </div>
+
+      <!-- Inventory Module Group -->
+      <div class="nav-group">
+        <div class="nav-group-title" data-i18n="nav_title_inventory">庫存管理</div>
+        <a href="#/inventory/stockin" class="nav-link" id="nav-inventory-stockin" data-i18n="nav_inventory_stockin">
+          📦 進貨與庫存查詢
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="developer-credit">
+        <p data-i18n="dev_credit">設計語言：明亮工業風</p>
+        <p class="version" data-i18n="dev_version">Mockup v1.0 (純前端版)</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Right Main Layout -->
+  <main class="main-layout">
+    <!-- Top Action Bar -->
+    <header class="topbar">
+      <!-- Breadcrumbs and Navigation Location -->
+      <div class="location-context">
+        <div class="breadcrumbs" id="breadcrumbs">
+          <span data-i18n="home">首頁</span> &gt; <span class="active" data-i18n="dashboard">儀表板</span>
+        </div>
+        <h2 class="view-title" id="view-title">人事管理</h2>
+      </div>
+
+      <!-- Stepper for active workflows -->
+      <div class="stepper-container hidden" id="workflow-stepper">
+        <div class="stepper-label" data-i18n="workflow_step">業務演示步驟:</div>
+        <ol class="stepper-list" id="stepper-list">
+          <!-- Filled dynamically by WorkflowGuide -->
+        </ol>
+      </div>
+
+      <!-- Topbar Controls (JSON Data Switcher, Lang switcher & Guide mode toggle) -->
+      <div class="topbar-controls">
+        <!-- Interactive Guide Mode -->
+        <div class="guide-toggle">
+          <label class="toggle-switch">
+            <input type="checkbox" id="guide-mode-checkbox" checked>
+            <span class="slider"></span>
+          </label>
+          <span class="guide-toggle-label" data-i18n="guide_mode">演示引導模式</span>
+        </div>
+
+        <!-- Language Switcher Dropdown -->
+        <div class="dropdown" id="lang-dropdown">
+          <button class="btn btn-secondary dropdown-btn" id="lang-btn">
+            🌐 Language <span class="caret">▼</span>
+          </button>
+          <div class="dropdown-content" id="lang-dropdown-content">
+            <a href="javascript:void(0);" id="btn-lang-en">🇬🇧 English</a>
+            <a href="javascript:void(0);" id="btn-lang-zh">🇨🇳 中文</a>
+          </div>
+        </div>
+
+        <!-- Data Switch Board -->
+        <div class="dropdown" id="data-dropdown">
+          <button class="btn btn-secondary dropdown-btn" id="data-btn" data-i18n="data_mgmt">
+            💾 模擬 API 數據管理 <span class="caret">▼</span>
+          </button>
+          <div class="dropdown-content" id="data-dropdown-content">
+            <a href="javascript:void(0);" id="btn-data-scale-normal" data-i18n="data_scale_normal">📋 一般公司規模 (預設)</a>
+            <a href="javascript:void(0);" id="btn-data-scale-large" data-i18n="data_scale_large">🏢 大型集團規模</a>
+            <hr class="dropdown-divider">
+            <a href="javascript:void(0);" id="btn-data-reset" data-i18n="data_reset">🔄 重設為初始資料</a>
+            <label class="upload-json-label" for="json-upload-input" data-i18n="data_upload">
+              📤 上傳自訂 JSON 資料
+              <input type="file" id="json-upload-input" accept=".json" style="display: none;">
+            </label>
+          </div>
+        </div>
+
+        <!-- Current Status indicator -->
+        <div class="status-indicator">
+          <span class="indicator-dot"></span>
+          <span class="indicator-text" data-i18n="api_online">API Online</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main View Viewport where dynamic views are injected -->
+    <section class="viewport" id="app-viewport">
+      <!-- Injected view content -->
+    </section>
+  </main>
+
+  <!-- Unsaved Changes Form Guard Warning Modal (防呆警示彈窗) -->
+  <div id="form-guard-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header border-warning">
+        <span class="modal-icon warning-icon">⚠️</span>
+        <h3 class="modal-title text-warning" data-i18n="fg_title">資料尚未儲存！</h3>
+      </div>
+      <div class="modal-body">
+        <p class="modal-warning-text" data-i18n="fg_body1">偵測到您在此頁面中已輸入大量表單資料。</p>
+        <p class="modal-detail-text" data-i18n="fg_body2">如果您此時切換頁面或重設數據，這些未儲存的輸入資料將會永久遺失。您確定要直接離開嗎？</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="form-guard-stay-btn" data-i18n="fg_stay">留在此頁</button>
+        <button class="btn btn-danger" id="form-guard-leave-btn" data-i18n="fg_leave">確認離開</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Drawer Modal -->
+  <div id="dir-drawer" class="modal-backdrop hidden" style="justify-content: flex-end; background-color: rgba(66, 65, 66, 0.3);">
+    <div class="modal-card" style="height:100%; border-radius:0; width:360px; max-width:100%; display:flex; flex-direction:column;">
+      <div class="modal-header">
+        <h3 id="drawer-name" data-i18n="drawer_title">同仁詳細資料</h3>
+      </div>
+      <div class="modal-body" style="flex-grow:1;" id="drawer-body">
+        <!-- Populated dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="close-drawer-btn" style="width:100%;" data-i18n="drawer_close">關閉詳細資料</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Notification Toast -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Dynamic Guide Bubble Overlay Container (引導氣泡浮標) -->
+  <div id="guide-tooltip-bubble" class="guide-tooltip-bubble hidden">
+    <div class="guide-tooltip-arrow"></div>
+    <div class="guide-tooltip-content">
+      <div class="guide-tooltip-header">
+        <span class="guide-badge">演示引導</span>
+        <button class="guide-close-btn" id="guide-tooltip-close">×</button>
+      </div>
+      <p class="guide-tooltip-text" id="guide-tooltip-text">請填寫此欄位，然後按送出按鈕以繼續流程。</p>
+      <div class="guide-tooltip-footer">
+        <span class="guide-step-count" id="guide-step-count">步驟 1/4</span>
+        <button class="btn btn-xs btn-primary" id="guide-next-btn">我知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multilingual translation mapping -->
+  <script src="data/locales.js"></script>
+
+  <!-- Data Mock Scripts -->
+  <script src="data/hr.js"></script>
+  <script src="data/finance.js"></script>
+  <script src="data/project.js"></script>
+  <script src="data/sales.js"></script>
+  <script src="data/inventory.js"></script>
+  
+  <!-- Common Utilities -->
+  <script src="utils.js"></script>
+  
+  <!-- Modular Component Views -->
+  <script src="components/hr.js"></script>
+  <script src="components/finance.js"></script>
+  <script src="components/project.js"></script>
+  <script src="components/sales.js"></script>
+  <script src="components/inventory.js"></script>
+  
+  <!-- Central Application Controller -->
+  <script src="app.js"></script>
+</body>
+</html>
