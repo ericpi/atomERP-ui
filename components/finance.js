@@ -364,7 +364,7 @@ function renderLedger(container, state) {
         <td>${entry.date}</td>
         <td>
           <span class="badge ${entry.type === 'income' ? 'badge-approved' : 'badge-rejected'}">
-            ${entry.type === 'income' ? '📥 收入' : '📤 支出'}
+            ${entry.type === 'income' ? (isZh ? '📥 收入' : '📥 Income') : (isZh ? '📤 支出' : '📤 Outflow')}
           </span>
         </td>
         <td><span class="text-bold">${entry.category}</span></td>
@@ -374,8 +374,8 @@ function renderLedger(container, state) {
         <td>${entry.description}</td>
         <td>
           ${entry.cashierApproved 
-            ? `<span style="color:var(--success); font-weight:600;">✔️ 出納已過帳</span>` 
-            : `<span style="color:var(--ksda-gold);">⏳ 待覆核</span>`}
+            ? `<span style="color:var(--success); font-weight:600;">${window.atomERP.t('cl_cashier_posted')}</span>` 
+            : `<span style="color:var(--ksda-gold);">${isZh ? '⏳ 待覆核' : '⏳ Pending'}</span>`}
         </td>
       </tr>
     `;

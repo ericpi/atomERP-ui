@@ -245,14 +245,14 @@ function renderDashboard(container, state) {
           </svg>
           
           <!-- Visual Overlay Tooltip for trend dots -->
-          <div id="chart-hover-tip" style="position:absolute; background-color:var(--ksda-dark); color:#FFFFFF; font-size:0.7rem; padding:4px 8px; border-radius:4px; display:none; pointer-events:none; box-shadow:var(--shadow-md);"></div>
+          <div id="chart-hover-tip" style="position:absolute; background-color:var(--ksda-dark); color:#FFFFFF; font-size:0.75rem; padding:8px 12px; border-radius:8px; pointer-events:none; display:none; z-index:10; white-space:nowrap;"></div>
         </div>
       </div>
 
       <!-- Donut Pie Chart Card -->
       <div class="card" style="display:flex; flex-direction:column; min-height:360px;">
-        <h3>📊 部門業績佔比 (Donut Chart)</h3>
-        <p class="card-subtext" style="margin-bottom:20px;">商業開發部 vs 業務推廣部</p>
+        <h3>${window.atomERP.t('sd_chart_pie')}</h3>
+        <p class="card-subtext" style="margin-bottom:20px;">${window.atomERP.t('sd_chart_pie_sub')}</p>
         
         <div style="flex-grow:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;">
           <!-- SVG Donut Chart -->
@@ -269,20 +269,20 @@ function renderDashboard(container, state) {
               <text x="50%" y="54%" class="chart-number" text-anchor="middle" font-size="6" font-weight="700" fill="var(--ksda-dark)"></text>
             </g>
           </svg>
-
-          <!-- Label Legends -->
+ 
+           <!-- Label Legends -->
           <div style="width:100%; display:flex; flex-direction:column; gap:10px; font-size:0.75rem;">
             <div class="flex-between">
               <div class="flex-gap" style="gap:6px;">
                 <span style="width:12px; height:12px; border-radius:50%; background-color:var(--ksda-teal); display:inline-block;"></span>
-                <span>商業開發部</span>
+                <span>${window.atomERP.t('hr_dept_bd')}</span>
               </div>
               <span class="text-bold">${deptOnePercent}% (NT$ ${deptOneSum.toLocaleString()})</span>
             </div>
             <div class="flex-between">
               <div class="flex-gap" style="gap:6px;">
                 <span style="width:12px; height:12px; border-radius:50%; background-color:var(--ksda-gold); display:inline-block;"></span>
-                <span>業務推廣部</span>
+                <span>${window.atomERP.t('hr_dept_sales')}</span>
               </div>
               <span class="text-bold">${deptTwoPercent}% (NT$ ${deptTwoSum.toLocaleString()})</span>
             </div>

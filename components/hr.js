@@ -282,7 +282,7 @@ function renderPayroll(container, state) {
           <h3>${window.atomERP.t('pr_title')}</h3>
           <p class="card-subtext">${isZh ? '本計算器自動累加「出差報銷(財務審核通過)」並按日核實扣除「事病假扣款」' : 'Automatically aggregates approved expense claims and deducts unpaid leave days.'}</p>
         </div>
-        <button class="btn btn-warning" id="run-payroll-btn">	ext-calc-btn${window.atomERP.t('pr_btn_calc')}</button>
+        <button class="btn btn-warning" id="run-payroll-btn">${window.atomERP.t('pr_btn_calc')}</button>
       </div>
 
       <div class="table-container">
