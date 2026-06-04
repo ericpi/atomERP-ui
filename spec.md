@@ -75,10 +75,10 @@ erp-frontend/
   "employees": [
     {
       "id": "EMP001",
-      "name": "張小明",
+      "name": "我是測試帳號",
       "department": "軟體研發部",
       "title": "資深工程師",
-      "email": "xiaoming.zhang@mockup-erp.org",
+      "email": "demo@mockup-erp.org",
       "phone": "0912-345-678",
       "joinDate": "2022-03-15",
       "salary": {
@@ -97,7 +97,7 @@ erp-frontend/
     {
       "id": "LV-2026-001",
       "employeeId": "EMP001",
-      "employeeName": "張小明",
+      "employeeName": "我是測試帳號",
       "type": "annual",
       "startDate": "2026-06-10",
       "endDate": "2026-06-12",
@@ -110,7 +110,7 @@ erp-frontend/
     {
       "id": "TR-2026-001",
       "employeeId": "EMP001",
-      "employeeName": "張小明",
+      "employeeName": "我是測試帳號",
       "destination": "台北分會辦事處",
       "startDate": "2026-06-18",
       "endDate": "2026-06-19",
@@ -128,7 +128,7 @@ erp-frontend/
     {
       "id": "CLM-2026-001",
       "employeeId": "EMP001",
-      "employeeName": "張小明",
+      "employeeName": "我是測試帳號",
       "category": "出差交通費",
       "amount": 2800,
       "description": "台北出差高鐵來回票與計程車費",
@@ -237,7 +237,7 @@ erp-frontend/
       "itemName": "客製化工業感紀念筆記本",
       "quantity": 200,
       "date": "2026-05-12",
-      "operator": "張小明",
+      "operator": "我是測試帳號",
       "supplier": "精工印刷廠"
     }
   ]
@@ -373,8 +373,8 @@ erp-frontend/
 
 * **機制描述：** 為方便與客戶或使用者進行功能流程簡報，頂部狀態列提供一個「流程導覽器」下拉清單。
 * **示範場景 A：【新進員工從請假到發薪流程】**
-  1. 步驟 1 (人事)：引導點擊新增張小明工程師。
-  2. 步驟 2 (請假)：引導張小明提交 3 天特休申請。
+  1. 步驟 1 (人事)：引導點擊新增我是測試帳號工程師。
+  2. 步驟 2 (請假)：引導我是測試帳號提交 3 天特休申請。
   3. 步驟 3 (人資審核)：引導切換至假單審核頁面點擊核准。
   4. 步驟 4 (薪資試算)：引導切換至薪資試算，顯示系統自動扣除 3 天請假扣款的公式與算式。
 * **示範場景 B：【差旅請款自動入帳流程】**

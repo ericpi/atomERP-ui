@@ -23,6 +23,14 @@ window.I18N_DICTS = {
     "nav_title_inventory": "Inventory Management",
     "dev_credit": "Design: Industrial Clean",
     "dev_version": "Mockup v1.0 (Frontend Template)",
+    "login_title": "atomERP System Login",
+    "login_email": "Email Address",
+    "login_password": "Password",
+    "login_btn": "Sign In",
+    "login_hint": "Demo: demo@mockup-erp.org / 123",
+    "login_failed": "Invalid email or password.",
+    "login_success": "Login successful, welcome!",
+    "btn_logout": "Logout",
 
     // Header Controls
     "home": "Home",
@@ -334,11 +342,11 @@ window.I18N_DICTS = {
 
     "leaveToPay_title": "New Employee Leave & Payroll Flow (A)",
     "leaveToPay_step1_title": "1. Hire Employee",
-    "leaveToPay_step1_text": "Click 'Hire New Employee' to onboard a new employee 'John Zhang'.",
+    "leaveToPay_step1_text": "Click 'Hire New Employee' to onboard a new employee 'DEMO'.",
     "leaveToPay_step2_title": "2. Request Leave",
-    "leaveToPay_step2_text": "Go to Leave page. Please fill a '3-day Annual Leave request' for 'John Zhang' and submit.",
+    "leaveToPay_step2_text": "Go to Leave page. Please fill a '3-day Annual Leave request' for 'DEMO' and submit.",
     "leaveToPay_step3_title": "3. Approve Leave",
-    "leaveToPay_step3_text": "Perfect! Now click 'Approve' on John Zhang's pending leave request.",
+    "leaveToPay_step3_text": "Perfect! Now click 'Approve' on DEMO's pending leave request.",
     "leaveToPay_step4_title": "4. Calculate Payroll",
     "leaveToPay_step4_text": "Deductions are calculated automatically. Go to Payroll page and click 'Calculate Monthly Payroll' to view calculations.",
 
@@ -374,6 +382,14 @@ window.I18N_DICTS = {
     "nav_title_inventory": "庫存管理",
     "dev_credit": "設計語言：明亮工業風",
     "dev_version": "Mockup v1.0 (純前端版)",
+    "login_title": "atomERP 系統登入",
+    "login_email": "電子信箱",
+    "login_password": "密碼",
+    "login_btn": "登入系統",
+    "login_hint": "測試帳號: demo@mockup-erp.org / 密碼: 123",
+    "login_failed": "信箱或密碼錯誤",
+    "login_success": "登入成功，歡迎回來！",
+    "btn_logout": "登出",
 
     // Header Controls
     "home": "首頁",
@@ -685,11 +701,11 @@ window.I18N_DICTS = {
 
     "leaveToPay_title": "新進同仁請假發薪業務流 (Flow A)",
     "leaveToPay_step1_title": "1. 新增員工",
-    "leaveToPay_step1_text": "點擊『新增員工』按鈕，即可錄用新同仁『張小明』。",
+    "leaveToPay_step1_text": "點擊『新增員工』按鈕，即可錄用新同仁『我是測試帳號』。",
     "leaveToPay_step2_title": "2. 提交特休申請",
-    "leaveToPay_step2_text": "切換至請假申請頁。現在請為『張小明』填寫一份『3天特休申請書』並按送出。",
+    "leaveToPay_step2_text": "切換至請假申請頁。現在請為『我是測試帳號』填寫一份『3天特休申請書』並按送出。",
     "leaveToPay_step3_title": "3. 審核假期",
-    "leaveToPay_step3_text": "非常好！假單送出後，請在待審核列表中為張小明的特休單點擊『核准』。",
+    "leaveToPay_step3_text": "非常好！假單送出後，請在待審核列表中為我是測試帳號的特休單點擊『核准』。",
     "leaveToPay_step4_title": "4. 試算薪資與扣除",
     "leaveToPay_step4_text": "員工請假會核實扣除薪資。請切換至『薪資試算』頁點擊『一鍵試算五月薪資』，檢視核算扣減公式！",
 

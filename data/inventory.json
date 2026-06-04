@@ -209,7 +209,7 @@
         "itemName": "客製化工業感紀念筆記本",
         "quantity": 200,
         "date": "2026-05-12",
-        "operator": "張小明",
+        "operator": "我是測試帳號",
         "supplier": "精工印刷廠"
       },
       {
@@ -236,7 +236,7 @@
         "quantity": 100,
         "itemName": "客製化工業風帆布提袋",
         "date": "2026-05-22",
-        "operator": "張小明",
+        "operator": "我是測試帳號",
         "supplier": "織美製袋工廠"
       },
       {
@@ -245,7 +245,7 @@
         "quantity": 10,
         "itemName": "研發專用 2.5 吋 SSD 1TB 固態硬碟",
         "date": "2026-05-25",
-        "operator": "張小明",
+        "operator": "我是測試帳號",
         "supplier": "順天3C科技大賣場"
       },
       {
@@ -290,7 +290,7 @@
         "quantity": 20,
         "itemName": "超高速 Cat.6e 網路跳線 (3m)",
         "date": "2026-06-02",
-        "operator": "張小明",
+        "operator": "我是測試帳號",
         "supplier": "順天3C科技大賣場"
       }
     ]
@@ -505,7 +505,7 @@
         "itemName": "Custom Industrial Notebook",
         "quantity": 200,
         "date": "2026-05-12",
-        "operator": "John Zhang",
+        "operator": "DEMO",
         "supplier": "Seiko Printing Press"
       },
       {
@@ -532,7 +532,7 @@
         "quantity": 100,
         "itemName": "Custom Industrial Canvas Tote",
         "date": "2026-05-22",
-        "operator": "John Zhang",
+        "operator": "DEMO",
         "supplier": "Zhimei Bag Factory"
       },
       {
@@ -541,7 +541,7 @@
         "quantity": 10,
         "itemName": "R&D 2.5\" SSD 1TB",
         "date": "2026-05-25",
-        "operator": "John Zhang",
+        "operator": "DEMO",
         "supplier": "Shuntian 3C Tech Mall"
       },
       {
@@ -586,7 +586,7 @@
         "quantity": 20,
         "itemName": "Cat.6e Ethernet Cable (3m)",
         "date": "2026-06-02",
-        "operator": "John Zhang",
+        "operator": "DEMO",
         "supplier": "Shuntian 3C Tech Mall"
       }
     ]

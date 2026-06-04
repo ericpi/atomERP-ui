@@ -171,18 +171,18 @@ function renderPersonnel(container, state) {
     
     // Auto-fill values in Guide Mode to ease demonstration
     if (window.WorkflowGuide.activeFlow === 'leaveToPay' && window.WorkflowGuide.currentStepIndex === 0) {
-      document.getElementById('emp-name').value = isZh ? '張小明' : 'John Zhang';
+      document.getElementById('emp-name').value = isZh ? '我是測試帳號' : 'DEMO';
       document.getElementById('emp-title').value = isZh ? '軟體工程師' : 'Software Engineer';
       document.getElementById('emp-salary').value = '65000';
-      document.getElementById('emp-email').value = 'xiaoming.zhang@mockup-erp.org';
+      document.getElementById('emp-email').value = 'demo@mockup-erp.org';
       window.FormGuard.setDirty(true); // Flag form dirty
       
       // Update guide bubble location inside panel
       setTimeout(() => {
         const submitBtn = panel.querySelector('button[type="submit"]');
         const bubbleText = isZh 
-          ? "張小明資料已預填！請點選『確認錄用存檔』按鈕存入本地資料庫庫。" 
-          : "John Zhang's details are pre-filled! Click 'Complete Onboarding' to save to the database.";
+          ? "我是測試帳號資料已預填！請點選『確認錄用存檔』按鈕存入本地資料庫庫。" 
+          : "DEMO's details are pre-filled! Click 'Complete Onboarding' to save to the database.";
         window.WorkflowGuide.showBubble(submitBtn, bubbleText, "top");
       }, 200);
     }
@@ -586,8 +586,8 @@ function renderLeave(container, state) {
     setTimeout(() => {
       const submitBtn = document.querySelector('#leave-apply-form button[type="submit"]');
       const bubbleText = isZh 
-        ? "張小明特休單內容已自動代入。請點選『提交假單審核』送出請假公文。" 
-        : "Leave details for John Zhang are pre-filled! Click 'Submit Leave Application' to route the request.";
+        ? "我是測試帳號特休單內容已自動代入。請點選『提交假單審核』送出請假公文。" 
+        : "Leave details for DEMO are pre-filled! Click 'Submit Leave Application' to route the request.";
       window.WorkflowGuide.showBubble(submitBtn, bubbleText, "top");
     }, 200);
   }

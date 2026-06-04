@@ -2,6 +2,8 @@
 
 [English](README.md) | [繁體中文](README_zh.md)
 
+🔗 **[Live Demo / 線上展示](https://ericpi.github.io/atomERP-ui/)**
+
 A clean, premium, and fully offline-capable ERP frontend mockup template designed for **Mockup Inc.** It serves as an interactive flow demonstration and client presentation tool. Built entirely with Vanilla JavaScript, HTML5, and pure CSS, it runs out-of-the-box by simply double-clicking `index.html` in any web browser—no servers, build tools, or database setups required.
 
 ---
@@ -9,7 +11,9 @@ A clean, premium, and fully offline-capable ERP frontend mockup template designe
 ## 🚀 Key Features
 
 * **Fully Offline-Capable (`file://` compatible):** Employs script-based dynamic data loading to avoid CORS restrictions, allowing the application to load directly from the local file system.
+* **Authentication & Route Guard:** Secure solid-background login card container covering the entire viewport. Validates email against any record in the mock database (password `123`, suggested test account: `demo@mockup-erp.org`) and intercepts unauthenticated routing.
 * **Componentized Architecture:** Each system module is separated into individual component files (`components/*.js`) that mount dynamically onto a single-page view router.
+* **Interactive Header Profile:** Displays current user's name and ID in the top-right header, which opens their personal profile drawer details when clicked. Includes a Logout button.
 * **Dual-Language i18n Support:** English by default, with Traditional Chinese activated automatically via URL query parameters (`?lang=zh`) or via the top-bar Language Selector.
 * **Interactive Guided Tours:** Centralized guide module (`WorkflowGuide`) demonstrating end-to-end business scenarios with context-aware tooltip bubble prompts:
   * **Flow A:** New Employee Onboarding ➔ Leave Request ➔ Payroll calculation.
@@ -71,6 +75,12 @@ Dynamic templates inside `components/*.js` fetch translation tokens directly fro
 
 ### 4. Interactive Scanner Simulation
 The inventory module simulates automated hardware barcode sensing using a camera laser frame overlay, randomly choosing SKU records from the database and automatically populating the form data with a successful scan sound prompt.
+
+### 5. Authentication & Route Guarding
+Route guard validation is evaluated inside `app.js`'s `handleRouting()` before rendering elements:
+- Checks if the user is authenticated (via a `sessionStorage` lookup fallback to `window.currentUser` memory variables for sandboxed local browser environments).
+- Unauthenticated requests trigger the solid-colored `#login-container` view and apply `hidden` classes to prevent flashing or leakages of background system DOM layouts.
+- Safely validates credentials against the active database (with general and specific locale fallbacks) and uses Null-safe DOM assertions to prevent bootstrap execution crashes.
 
 ---
 

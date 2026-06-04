@@ -840,7 +840,7 @@ tr:hover td {
   height: 100vh;
   background-color: rgba(244, 247, 246, 0.85);
   backdrop-filter: blur(2px);
-  z-index: 2000;
+  z-index: 10000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1061,3 +1061,99 @@ tr:hover td {
   from { opacity: 0; transform: translateX(20px); }
   to { opacity: 1; transform: translateX(0); }
 }
+
+/* LOGIN SCREEN STYLES */
+.login-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-system);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.login-card {
+  background-color: var(--bg-card);
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-logo-box {
+  width: 54px;
+  height: 54px;
+  background-color: var(--ksda-teal);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(0, 160, 163, 0.3);
+}
+
+.login-logo-text-k {
+  font-size: 1.35rem;
+  color: #FFFFFF;
+  margin-bottom: -2px;
+}
+
+.login-logo-text-sda {
+  font-size: 0.75rem;
+  color: var(--ksda-gold);
+}
+
+.login-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ksda-dark);
+  margin-bottom: 8px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background-color: var(--bg-system);
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--ksda-teal);
+  line-height: 1.4;
+}
+
+/* TOPBAR INDICATOR INTERACTIVE STYLES */
+.status-indicator.interactive {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.status-indicator.interactive:hover {
+  background-color: var(--ksda-teal-light);
+  border-color: var(--ksda-teal-border);
+}
+
+.status-indicator.interactive:hover .indicator-text {
+  color: var(--ksda-teal);
+}
+

@@ -3,10 +3,10 @@
     "employees": [
       {
         "id": "EMP001",
-        "name": "張小明",
+        "name": "我是測試帳號",
         "department": "軟體研發部",
         "title": "資深工程師",
-        "email": "xiaoming.zhang@mockup-erp.org",
+        "email": "demo@mockup-erp.org",
         "phone": "0912-345-678",
         "joinDate": "2022-03-15",
         "salary": {
@@ -557,7 +557,7 @@
       {
         "id": "LV-2026-001",
         "employeeId": "EMP001",
-        "employeeName": "張小明",
+        "employeeName": "我是測試帳號",
         "type": "annual",
         "startDate": "2026-06-10",
         "endDate": "2026-06-12",
@@ -727,10 +727,10 @@
     "employees": [
       {
         "id": "EMP001",
-        "name": "John Zhang",
+        "name": "DEMO",
         "department": "R&D Department",
         "title": "Senior Engineer",
-        "email": "xiaoming.zhang@mockup-erp.org",
+        "email": "demo@mockup-erp.org",
         "phone": "0912-345-678",
         "joinDate": "2022-03-15",
         "salary": {
@@ -1281,7 +1281,7 @@
       {
         "id": "LV-2026-001",
         "employeeId": "EMP001",
-        "employeeName": "John Zhang",
+        "employeeName": "DEMO",
         "type": "annual",
         "startDate": "2026-06-10",
         "endDate": "2026-06-12",

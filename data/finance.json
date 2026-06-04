@@ -16,7 +16,7 @@
       {
         "id": "CLM-2026-002",
         "employeeId": "EMP001",
-        "employeeName": "張小明",
+        "employeeName": "我是測試帳號",
         "category": "辦公文具",
         "amount": 450,
         "description": "購買研發部白板筆及筆記本",
@@ -163,7 +163,7 @@
         "category": "員工報銷-文具",
         "account": "零用金",
         "amount": 450,
-        "payee": "張小明",
+        "payee": "我是測試帳號",
         "description": "報銷白板筆及筆記本費用 (CLM-2026-002)",
         "cashierApproved": true
       },
@@ -362,7 +362,7 @@
       {
         "id": "CLM-2026-002",
         "employeeId": "EMP001",
-        "employeeName": "John Zhang",
+        "employeeName": "DEMO",
         "category": "Office Stationery",
         "amount": 450,
         "description": "Purchase R&D whiteboard markers & notebooks",
@@ -509,7 +509,7 @@
         "category": "Reimbursement - Stationery",
         "account": "Petty Cash",
         "amount": 450,
-        "payee": "John Zhang",
+        "payee": "DEMO",
         "description": "Reimburse whiteboard markers & notebooks (CLM-2026-002)",
         "cashierApproved": true
       },

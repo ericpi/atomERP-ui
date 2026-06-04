@@ -63,10 +63,51 @@ async function loadInitialData() {
   }
 }
 
+window.getCurrentUser = () => {
+  try {
+    const userJson = sessionStorage.getItem('currentUser');
+    if (userJson) return JSON.parse(userJson);
+  } catch (e) {
+    console.warn('sessionStorage is not accessible:', e);
+  }
+  return window.currentUser || null;
+};
+
 /**
  * 2. Route Dispatcher
  */
 function handleRouting() {
+  const user = window.getCurrentUser();
+  if (!user) {
+    // Hide main application shell
+    document.getElementById('sidebar').classList.add('hidden');
+    document.querySelector('.main-layout').classList.add('hidden');
+    
+    // Show login page container
+    const loginContainer = document.getElementById('login-container');
+    if (loginContainer) {
+      loginContainer.classList.remove('hidden');
+      window.atomERP.translateDOM(loginContainer);
+    }
+    return;
+  }
+
+  // Show main application shell
+  document.getElementById('sidebar').classList.remove('hidden');
+  document.querySelector('.main-layout').classList.remove('hidden');
+  
+  const loginContainer = document.getElementById('login-container');
+  if (loginContainer) {
+    loginContainer.classList.add('hidden');
+  }
+
+  // Set topbar status to current logged-in user
+  const statusTextEl = document.getElementById('status-indicator-text');
+  if (statusTextEl) {
+    statusTextEl.textContent = `${user.name} (${user.id})`;
+    statusTextEl.removeAttribute('data-i18n');
+  }
+
   const hash = window.location.hash || '#/hr/personnel';
   
   // Format check: #/module/subview
@@ -304,59 +345,70 @@ async function bootstrap() {
   }
 
   // Scale buttons
-  document.getElementById('btn-data-scale-normal').addEventListener('click', async () => {
-    if (initialDataBackup) {
-      await window.simulateApi('重載一般規模數據中...');
-      window.globalState = JSON.parse(initialDataBackup);
-      handleRouting();
-      window.showToast(window.atomERP.t('toast_reset') || '已重載為標準模擬數據。', 'success');
-    }
-  });
+  const btnScaleNormal = document.getElementById('btn-data-scale-normal');
+  if (btnScaleNormal) {
+    btnScaleNormal.addEventListener('click', async () => {
+      if (initialDataBackup) {
+        await window.simulateApi('重載一般規模數據中...');
+        window.globalState = JSON.parse(initialDataBackup);
+        handleRouting();
+        window.showToast(window.atomERP.t('toast_reset') || '已重載為標準模擬數據。', 'success');
+      }
+    });
+  }
 
-  document.getElementById('btn-data-scale-large').addEventListener('click', scaleUpData);
+  const btnScaleLarge = document.getElementById('btn-data-scale-large');
+  if (btnScaleLarge) {
+    btnScaleLarge.addEventListener('click', scaleUpData);
+  }
 
-  document.getElementById('btn-data-reset').addEventListener('click', async () => {
-    if (initialDataBackup) {
-      await window.simulateApi('重置資料庫為初始設定...');
-      window.globalState = JSON.parse(initialDataBackup);
-      window.FormGuard.setDirty(false);
-      handleRouting();
-      window.showToast(window.atomERP.t('toast_reset'), 'success');
-    }
-  });
+  const btnReset = document.getElementById('btn-data-reset');
+  if (btnReset) {
+    btnReset.addEventListener('click', async () => {
+      if (initialDataBackup) {
+        await window.simulateApi('重置資料庫為初始設定...');
+        window.globalState = JSON.parse(initialDataBackup);
+        window.FormGuard.setDirty(false);
+        handleRouting();
+        window.showToast(window.atomERP.t('toast_reset'), 'success');
+      }
+    });
+  }
 
   // Custom JSON data Uploader
   const jsonUpload = document.getElementById('json-upload-input');
-  jsonUpload.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+  if (jsonUpload) {
+    jsonUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      try {
-        const customData = JSON.parse(event.target.result);
-        
-        // Validation check
-        if (!customData.hr || !customData.finance || !customData.sales) {
-          window.showToast(window.atomERP.t('toast_upload_fail_format'), 'danger');
-          return;
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        try {
+          const customData = JSON.parse(event.target.result);
+          
+          // Validation check
+          if (!customData.hr || !customData.finance || !customData.sales) {
+            window.showToast(window.atomERP.t('toast_upload_fail_format'), 'danger');
+            return;
+          }
+
+          await window.simulateApi('解析並注入上傳之自訂 JSON...');
+          
+          window.globalState = {
+            ...window.globalState,
+            ...customData
+          };
+          
+          handleRouting();
+          window.showToast(window.atomERP.t('toast_upload_success'), 'success');
+        } catch (err) {
+          window.showToast(window.atomERP.t('toast_upload_fail_parse'), 'danger');
         }
-
-        await window.simulateApi('解析並注入上傳之自訂 JSON...');
-        
-        window.globalState = {
-          ...window.globalState,
-          ...customData
-        };
-        
-        handleRouting();
-        window.showToast(window.atomERP.t('toast_upload_success'), 'success');
-      } catch (err) {
-        window.showToast(window.atomERP.t('toast_upload_fail_parse'), 'danger');
-      }
-    };
-    reader.readAsText(file);
-  });
+      };
+      reader.readAsText(file);
+    });
+  }
 
   // Intercept Sidebar link clicks to hook FormGuard
   document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
@@ -370,18 +422,116 @@ async function bootstrap() {
 
   // Add sample Guided Flows triggers on sidebar footer or topbar context
   const breadcrumbs = document.getElementById('breadcrumbs');
-  breadcrumbs.style.cursor = 'pointer';
-  breadcrumbs.title = window.atomERP.getLocale() === 'zh' ? '點擊選擇展示流程引導' : 'Click to select guided workflow tour';
-  
-  breadcrumbs.addEventListener('click', (e) => {
-    // Prompt choices via confirm popup
-    const flowSelect = confirm(window.atomERP.t('guide_tour_alert'));
-    if (flowSelect) {
-      window.WorkflowGuide.startFlow('leaveToPay');
-    } else {
-      window.WorkflowGuide.startFlow('travelToLedger');
-    }
-  });
+  if (breadcrumbs) {
+    breadcrumbs.style.cursor = 'pointer';
+    breadcrumbs.title = window.atomERP.getLocale() === 'zh' ? '點擊選擇展示流程引導' : 'Click to select guided workflow tour';
+    
+    breadcrumbs.addEventListener('click', (e) => {
+      // Prompt choices via confirm popup
+      const flowSelect = confirm(window.atomERP.t('guide_tour_alert'));
+      if (flowSelect) {
+        window.WorkflowGuide.startFlow('leaveToPay');
+      } else {
+        window.WorkflowGuide.startFlow('travelToLedger');
+      }
+    });
+  }
+
+  // Login Form Submission
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log('Login form submitted!');
+      try {
+        const emailInput = document.getElementById('login-email');
+        const passwordInput = document.getElementById('login-password');
+        
+        if (!emailInput || !passwordInput) {
+          console.error('Email or password input element not found in DOM!');
+          return;
+        }
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        console.log('Attempting login for email:', email);
+
+        if (!window.globalState || !window.globalState.hr || !window.globalState.hr.employees) {
+          console.error('window.globalState is not fully initialized!');
+          window.showToast('系統資料載入中，請稍候。', 'danger');
+          return;
+        }
+
+        // Find the employee with this email in the active database
+        let employee = window.globalState.hr.employees.find(
+          emp => emp.email && emp.email.toLowerCase() === email.toLowerCase()
+        );
+        
+        // Fallback for demo@mockup-erp.org in English locale
+        if (!employee && email.toLowerCase() === 'demo@mockup-erp.org') {
+          employee = window.globalState.hr.employees.find(emp => emp.id === 'EMP001');
+        }
+
+        if (employee && password === '123') {
+          console.log('Credentials valid, user resolved:', employee.name, employee.id);
+          await window.simulateApi(window.atomERP.getLocale() === 'zh' ? '驗證帳密並登入中...' : 'Authenticating credentials...');
+          
+          try {
+            sessionStorage.setItem('currentUser', JSON.stringify(employee));
+          } catch (storageErr) {
+            console.warn('Unable to write to sessionStorage:', storageErr);
+          }
+          window.currentUser = employee; // Memory-based session fallback
+          
+          window.showToast(window.atomERP.t('login_success'), 'success');
+          
+          // Clear password input
+          passwordInput.value = '';
+          
+          // Re-route to show the normal system
+          handleRouting();
+        } else {
+          console.warn('Login verification failed. employee found =', !!employee, 'password matches =', password === '123');
+          window.showToast(window.atomERP.t('login_failed'), 'danger');
+        }
+      } catch (err) {
+        console.error('Runtime error during form submission:', err);
+        window.showToast('登入失敗：程式異常，請檢查主控台。', 'danger');
+      }
+    });
+  }
+
+  // Logout Action
+  const logoutBtn = document.getElementById('btn-logout');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      try {
+        sessionStorage.removeItem('currentUser');
+      } catch (e) {
+        console.warn('sessionStorage block on removeItem:', e);
+      }
+      window.currentUser = null;
+      
+      // Reset status indicator attributes
+      const statusTextEl = document.getElementById('status-indicator-text');
+      if (statusTextEl) {
+        statusTextEl.setAttribute('data-i18n', 'api_online');
+        statusTextEl.textContent = window.atomERP.t('api_online');
+      }
+      handleRouting();
+    });
+  }
+
+  // Click on Status Indicator to display Profile Drawer
+  const statusIndicator = document.getElementById('status-indicator');
+  if (statusIndicator) {
+    statusIndicator.addEventListener('click', () => {
+      const user = window.getCurrentUser();
+      if (user) {
+        window.showContactDrawer(user.id);
+      }
+    });
+  }
 }
 
 // Bootstrap!

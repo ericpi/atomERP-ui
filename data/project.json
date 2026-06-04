@@ -46,7 +46,7 @@
             "parentId": null,
             "title": "設計左側主導航列與頂部狀態區",
             "assignee": "EMP001",
-            "assigneeName": "張小明",
+            "assigneeName": "我是測試帳號",
             "status": "in_progress",
             "priority": "high",
             "description": "依據 工業風格設定進行視覺刻劃與路由切換骨架"
@@ -58,7 +58,7 @@
             "parentId": "ISS-001",
             "title": "編寫側邊欄 HTML 結構與 HSL 配色樣式",
             "assignee": "EMP001",
-            "assigneeName": "張小明",
+            "assigneeName": "我是測試帳號",
             "status": "done",
             "priority": "medium",
             "description": "利用 CSS Grid 與變數實作左側固定選單"
@@ -70,7 +70,7 @@
             "parentId": null,
             "title": "建立財務請款上傳憑證模擬區",
             "assignee": "EMP001",
-            "assigneeName": "張小明",
+            "assigneeName": "我是測試帳號",
             "status": "todo",
             "priority": "high",
             "description": "支援拖曳憑證圖檔，預覽上傳狀態並自動寫入待審核狀態"
@@ -262,7 +262,7 @@
             "parentId": null,
             "title": "規劃防呆警告彈出式對話框 (FormGuard Modal)",
             "assignee": "EMP001",
-            "assigneeName": "張小明",
+            "assigneeName": "我是測試帳號",
             "status": "done",
             "priority": "high",
             "description": "當 Form 有編輯值 (isDirty) 且試圖點選側邊欄切換路由時，彈窗阻斷"
@@ -274,7 +274,7 @@
             "parentId": null,
             "title": "建構互動演示導覽引擎 (Workflow Guide Tooltip)",
             "assignee": "EMP001",
-            "assigneeName": "張小明",
+            "assigneeName": "我是測試帳號",
             "status": "done",
             "priority": "high",
             "description": "設計 WorkflowGuide 類別管理步驟索引，精準運算 bubble 彈窗定位點"
@@ -330,7 +330,7 @@
             "parentId": null,
             "title": "Design Left Navigation & Topbar Status",
             "assignee": "EMP001",
-            "assigneeName": "John Zhang",
+            "assigneeName": "DEMO",
             "status": "in_progress",
             "priority": "high",
             "description": "Visual rendering and routing skeletal structure based on industrial clean design"
@@ -342,7 +342,7 @@
             "parentId": "ISS-001",
             "title": "Sidebar HTML Structure & HSL Theme",
             "assignee": "EMP001",
-            "assigneeName": "John Zhang",
+            "assigneeName": "DEMO",
             "status": "done",
             "priority": "medium",
             "description": "Use CSS Grid and CSS variables to implement a fixed left sidebar menu"
@@ -354,7 +354,7 @@
             "parentId": null,
             "title": "Reimbursement Receipt Upload Simulator",
             "assignee": "EMP001",
-            "assigneeName": "John Zhang",
+            "assigneeName": "DEMO",
             "status": "todo",
             "priority": "high",
             "description": "Support dragging receipt image, preview upload state, and auto queue for approval"
@@ -546,7 +546,7 @@
             "parentId": null,
             "title": "FormGuard Modal Interceptor",
             "assignee": "EMP001",
-            "assigneeName": "John Zhang",
+            "assigneeName": "DEMO",
             "status": "done",
             "priority": "high",
             "description": "Prevent routing and show modal warnings when form is dirty and user tries to switch page"
@@ -558,7 +558,7 @@
             "parentId": null,
             "title": "Interactive Workflow Tour Engine",
             "assignee": "EMP001",
-            "assigneeName": "John Zhang",
+            "assigneeName": "DEMO",
             "status": "done",
             "priority": "high",
             "description": "Design WorkflowGuide class to manage step indexes and compute bubble positions"
