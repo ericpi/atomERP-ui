@@ -223,6 +223,18 @@ body {
   margin-top: 2px;
 }
 
+.github-link {
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.github-link:hover {
+  color: #FFFFFF;
+}
+
 /* TOP ACTION BAR */
 .topbar {
   height: var(--topbar-height);
