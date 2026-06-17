@@ -102,4 +102,4 @@ Add the query parameter `?lang=zh` to the browser URL to test the Traditional Ch
 ---
 
 ## 📄 License
-This project is open-source and available under the MIT License. Developed for mockup demonstrations and presentation templates.
+This project is open-sourced under the MIT License.
