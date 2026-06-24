@@ -228,6 +228,22 @@
     </div>
   </div>
 
+  <!-- Login Error Modal -->
+  <div id="login-error-modal" class="modal-backdrop hidden" style="z-index: 10005;">
+    <div class="modal-card">
+      <div class="modal-header" style="border-bottom: 2px solid var(--danger);">
+        <span class="modal-icon" style="color: var(--danger);">❌</span>
+        <h3 class="modal-title" style="color: var(--danger);" data-i18n="login_failed_title">登入失敗</h3>
+      </div>
+      <div class="modal-body">
+        <p class="modal-warning-text" data-i18n="login_failed">帳號或密碼錯誤</p>
+      </div>
+      <div class="modal-footer" style="padding: 12px 24px; display: flex; justify-content: flex-end;">
+        <button class="btn btn-primary" id="login-error-close-btn" data-i18n="btn_confirm" style="min-width: 80px;">確定</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Contact Drawer Modal -->
   <div id="dir-drawer" class="modal-backdrop hidden" style="justify-content: flex-end; background-color: rgba(66, 65, 66, 0.3);">
     <div class="modal-card" style="height:100%; border-radius:0; width:360px; max-width:100%; display:flex; flex-direction:column;">

@@ -492,11 +492,35 @@ async function bootstrap() {
           handleRouting();
         } else {
           console.warn('Login verification failed. employee found =', !!employee, 'password matches =', password === '123');
-          window.showToast(window.atomERP.t('login_failed'), 'danger');
+          // Show error dialog
+          const errorModal = document.getElementById('login-error-modal');
+          if (errorModal) {
+            errorModal.classList.remove('hidden');
+            window.atomERP.translateDOM(errorModal);
+          } else {
+            window.showToast(window.atomERP.t('login_failed'), 'danger');
+          }
         }
       } catch (err) {
         console.error('Runtime error during form submission:', err);
-        window.showToast('登入失敗：程式異常，請檢查主控台。', 'danger');
+        const errorModal = document.getElementById('login-error-modal');
+        if (errorModal) {
+          errorModal.classList.remove('hidden');
+          window.atomERP.translateDOM(errorModal);
+        } else {
+          window.showToast('登入失敗：程式異常，請檢查主控台。', 'danger');
+        }
+      }
+    });
+  }
+
+  // Login Error Modal Close Button
+  const loginErrorCloseBtn = document.getElementById('login-error-close-btn');
+  if (loginErrorCloseBtn) {
+    loginErrorCloseBtn.addEventListener('click', () => {
+      const modal = document.getElementById('login-error-modal');
+      if (modal) {
+        modal.classList.add('hidden');
       }
     });
   }

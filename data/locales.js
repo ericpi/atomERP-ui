@@ -28,7 +28,9 @@ window.I18N_DICTS = {
     "login_password": "Password",
     "login_btn": "Sign In",
     "login_hint": "Demo: demo@mockup-erp.org / 123",
-    "login_failed": "Invalid email or password.",
+    "login_failed": "Account or password incorrect.",
+    "login_failed_title": "Login Failed",
+    "btn_confirm": "Confirm",
     "login_success": "Login successful, welcome!",
     "btn_logout": "Logout",
 
@@ -387,7 +389,9 @@ window.I18N_DICTS = {
     "login_password": "密碼",
     "login_btn": "登入系統",
     "login_hint": "測試帳號: demo@mockup-erp.org / 密碼: 123",
-    "login_failed": "信箱或密碼錯誤",
+    "login_failed": "帳號或密碼錯誤",
+    "login_failed_title": "登入失敗",
+    "btn_confirm": "確定",
     "login_success": "登入成功，歡迎回來！",
     "btn_logout": "登出",
 
